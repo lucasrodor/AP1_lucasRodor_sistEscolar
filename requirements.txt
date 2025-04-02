@@ -1,0 +1,10 @@
+pandas==2.2.1
+sqlalchemy==2.0.29
+pymysql==1.1.0
+streamlit==1.32.2
+openpyxl==3.1.2
+python-dotenv==1.0.1
+fpdf==1.7.2
+streamlit-extras==0.2.8
+ipykernel==6.29.3
+streamlit-option-menu==0.3.6
