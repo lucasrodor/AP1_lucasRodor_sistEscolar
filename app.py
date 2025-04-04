@@ -258,6 +258,8 @@ elif menu == "Relatório de notas":
     if alunos:
         alunos_dict = {a[1]: a[0] for a in alunos}
         filtro_nome = st.text_input("🔍 Filtrar aluno por nome:")
+        #filtra os nomes com um list comprehension para verificar se o nome digitado ta no dicionario de alunos,
+        #se tiver, apareça esse nome ou nomes que contenham parte dele, se não, lista todos os nomes e mostra eles
         nomes_filtrados = [nome for nome in alunos_dict if filtro_nome.lower() in nome.lower()] if filtro_nome else list(alunos_dict.keys())
         selecionados = st.multiselect("Selecione os alunos:", nomes_filtrados)
 
@@ -268,6 +270,7 @@ elif menu == "Relatório de notas":
 
             disciplina_filtro = st.text_input(f"Filtrar disciplinas para {nome}:", key=nome)
             if disciplina_filtro:
+                # pega as colunas do DataFrame que contei o que foi escrito no filtro da discplina
                 df = df[df['Disciplina'].str.lower().str.contains(disciplina_filtro.lower())]
 
             st.dataframe(df, use_container_width=True)
